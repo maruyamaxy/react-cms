@@ -11,3 +11,7 @@ script:
   - npm run lint
   - npm run test
   - npm run build
+
+notifications:
+  slack:
+    secure: ajt6L9ZLTLIKHReLqHgzj+NSiNmw8tEV/wo4vTX5u/C2Dn1tJyQAd5pkIFx7OfrEvIch+pnGsWFZ+6uQt6Y7kfDbJFr53FyQkWJMhPiQklMhCcmYegDYQ5wHGkEmhbLJBzPlgAh66QT5K65fvBFzF4Nesj5mQ778+/+CGf7DdeKePSKlmhv0POIZwHKqB1Crxqyq4VM/zdFg4EWfd02lQnWV3yFwpuvG7zOlsTUSs203V3EGukh/IV0xuqnsKwGafoVGUb8SSJwwyIyZlwta/N7dyYBC2vgNPOA70/1VivEzS/cEtCLSZSP8aV5WCnc6pTRZBo4O/JFW8WiYpt4OWY/69uAxAeyM/SshygL9POsrxOm31t25xPWuiuFNiyTVi7jayzsqVlko295+GD+8yVha4f8SvTk9xm3HIlQLwrtbr72AdWRQwEPK8/pBJbxB/NZLsS9afLRDGHnaRUbwb08aVS2vVbN1YkbTR1YPBqDH63aF/f1yy4v/yMsVutVFpFtMhjXabq2HTLlk2Tf5WuWhQ/Vi3d8LXrDXg/7PZ1zgAlfnv6FCAqZNM4r5VI4a0o29dAvBhcCdsTUcS3bfyOpaT3CkMfBJgD5byBURgp/Aj6b8i43NUtYJGUmum4kEUOFrnrE6roxaIorkNuUxnmuYRL/n3wjSrqnZZy3Zd1I=
