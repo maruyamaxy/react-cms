@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - 6.7.0
+
+before_script:
+  - npm i -g yarn
+  - yarn
+  - cd src && mv config.sample.js config.js
+
+script:
+  - npm run lint
+  - npm run test
+  - npm run build

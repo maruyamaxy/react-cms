@@ -1,0 +1,24 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-1"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-react-jsx",
+    "transform-flow-strip-types",
+    [
+      "react-css-modules",
+      {
+        "generateScopedName": "[path]___[name]__[local]___[hash:base64:5]",
+        "filetypes": {
+          ".scss": "postcss-scss"
+        }
+      }
+    ],
+    "react-hot-loader/babel"
+  ]
+}

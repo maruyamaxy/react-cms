@@ -1,0 +1,28 @@
+.container {
+  .contentHead {
+    height: 48px;
+    vertical-align: bottom;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    padding: 7px 0;
+    box-sizing: border-box;
+    background-color: #0081c6;
+  }
+  .content {
+    height: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #666;
+    overflow-y: scroll;
+    h3 {
+      text-align: left;
+    }
+  }
+  .form {
+    width: 100%;
+  }
+  .wrapper {
+    display: flex;
+  }
+}

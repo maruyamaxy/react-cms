@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  .content {
+    width: 49%;
+  }
+  h3 {
+    text-align: center;
+  }
+}
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: 30px auto;
+  .btn {
+    flex: (100/2);
+  }
+}
