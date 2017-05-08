@@ -5,7 +5,7 @@ import toMarkdown from 'to-markdown';
 import { pull, last } from 'lodash';
 
 import { Archive, Category } from '../../actions';
-import { vallidation } from '../../utils';
+import { validation } from '../../utils';
 import EditArticle from './EditArticle';
 import EditSide from './EditSide';
 import { Loading, Categories, CategoryFrom } from '../../parts';
@@ -97,7 +97,7 @@ export default class Edit extends Component {
 
   handleTitle(event) {
     const val = event.target.value;
-    const valid = vallidation.validTitle(val);
+    const valid = validation.validTitle(val);
     this.setState({
       article: {
         title: val,
@@ -127,8 +127,8 @@ export default class Edit extends Component {
       categories,
       categoryLists,
     } = this.state;
-    const catValid = vallidation.validEmpty(categoryNew.name, 'カテゴリ');
-    const slugValid = vallidation.validNonJpanese(categoryNew.slug, 'スラッグ');
+    const catValid = validation.validEmpty(categoryNew.name, 'カテゴリ');
+    const slugValid = validation.validNonJpanese(categoryNew.slug, 'スラッグ');
 
     if (catValid || slugValid) {
       this.setState({

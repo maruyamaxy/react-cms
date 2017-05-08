@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
@@ -29,10 +28,6 @@ export default class App extends Component {
 
   componentDidMount() {
     injectTapEventPlugin();
-
-    if (!this.state.isLoggedIn) {
-      browserHistory.push('/');
-    }
   }
 
   handleFbLogin(response) {

@@ -1,16 +1,16 @@
 import { expect } from 'chai';
-import { vallidation } from '../../utils';
+import { validation } from '../../utils';
 
 let text = '';
 let name = 'カテゴリ';
 describe('必須バリデーション', () => {
   it('エラー', () => {
     text = '';
-    expect(vallidation.validEmpty(text, name)).to.equal(`${name}は必須です。`);
+    expect(validation.validEmpty(text, name)).to.equal(`${name}は必須です。`);
   });
   it('エラー無', () => {
     text = 'バリュー';
-    expect(vallidation.validEmpty(text, name)).to.equal('');
+    expect(validation.validEmpty(text, name)).to.equal('');
   });
 });
 
@@ -18,15 +18,15 @@ describe('必須バリデーション', () => {
 describe('タイトルバリデーション', () => {
   it('超過エラー', () => {
     text = 'あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいう';
-    expect(vallidation.validTitle(text, name)).to.equal('タイトルは32文字以内が推奨です。');
+    expect(validation.validTitle(text, name)).to.equal('タイトルは32文字以内が推奨です。');
   });
   it('必須エラー', () => {
     text = '';
-    expect(vallidation.validTitle(text)).to.equal('タイトルは必須です。');
+    expect(validation.validTitle(text)).to.equal('タイトルは必須です。');
   });
   it('エラー無', () => {
     text = 'タイトル';
-    expect(vallidation.validTitle(text)).to.equal('');
+    expect(validation.validTitle(text)).to.equal('');
   });
 });
 
@@ -34,14 +34,14 @@ describe('タイトルバリデーション', () => {
 describe('日本語バリデーション', () => {
   it('必須エラー', () => {
     text = '';
-    expect(vallidation.validNonJpanese(text, name)).to.equal(`${name}は必須です。`);
+    expect(validation.validNonJpanese(text, name)).to.equal(`${name}は必須です。`);
   });
   it('日本語エラー', () => {
     text = 'ほげ';
-    expect(vallidation.validNonJpanese(text, name)).to.equal(`${name}は半角英数字のみです。`);
+    expect(validation.validNonJpanese(text, name)).to.equal(`${name}は半角英数字のみです。`);
   });
   it('エラー無', () => {
     text = 'hoge123';
-    expect(vallidation.validNonJpanese(text, name)).to.equal('');
+    expect(validation.validNonJpanese(text, name)).to.equal('');
   });
 });

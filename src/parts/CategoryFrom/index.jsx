@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { TextField, RaisedButton } from 'material-ui';
 
 import style from '../../style';
-import { vallidation } from '../../utils';
+import { validation } from '../../utils';
 import './index.scss';
 
 export default class CategoryFrom extends Component {
@@ -45,7 +45,7 @@ export default class CategoryFrom extends Component {
 
   handleCatName(event) {
     const val = event.target.value;
-    const valid = vallidation.validEmpty(val, 'カテゴリ');
+    const valid = validation.validEmpty(val, 'カテゴリ');
     this.setState({
       categoryNew: {
         name: val,
@@ -57,7 +57,7 @@ export default class CategoryFrom extends Component {
 
   handleSlugName(event) {
     const val = event.target.value;
-    const valid = vallidation.validNonJpanese(val, 'スラッグ');
+    const valid = validation.validNonJpanese(val, 'スラッグ');
     this.setState({
       categoryNew: {
         name: this.state.categoryNew.name,
