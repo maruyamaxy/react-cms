@@ -1,6 +1,7 @@
 ### set update
 ```javascript
 yarn
+cd src && cp config.sample.js config.js
 // start webpack dev server
 npm start
 

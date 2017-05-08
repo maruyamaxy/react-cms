@@ -10,7 +10,7 @@ import {
   Popover,
   Menu,
   MenuItem,
- } from 'material-ui';
+} from 'material-ui';
 
 import config from '../../config';
 import './Header.scss';

@@ -1,3 +1,3 @@
 export request from './request';
-export vallidation from './vallidation';
+export validation from './validation';
 export analytics from './analytics';
