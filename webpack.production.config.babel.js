@@ -3,7 +3,7 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import loaders from './webpack.loaders';
-import cssloaders from './webpack.loaders.css';
+import cssloaders from './webpack.cssloaders';
 
 loaders.push(cssloaders);
 
