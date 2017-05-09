@@ -16,6 +16,7 @@ vendor
 node_modules
 .vagrant
 *.map
+*.css
 
 logs
 *.log

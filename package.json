@@ -16,7 +16,7 @@
     "ES6"
   ],
   "scripts": {
-    "server": "npm run build && forever node server.bundle.js",
+    "server": "npm run build && forever start node server.bundle.js",
     "build": "NODE_ENV=production npm run build:client && npm run build:server",
     "build:client": "webpack --config webpack.production.config.babel.js --progress --profile --colors",
     "build:server": "webpack --config webpack.server.config.babel.js --progress --profile --colors",
@@ -25,10 +25,12 @@
     "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive $(find src/test/mocha -name '*.spec.js')",
     "lint": "eslint --ext js --ext jsx src"
   },
+  "betterScripts": {},
   "dependencies": {
     "clipboard-js": "^0.3.3",
     "eslint-plugin-jsx-a11y": "4",
     "express": "^4.15.2",
+    "forever": "^0.15.3",
     "lodash": "^4.17.4",
     "markdown-it": "^8.3.1",
     "material-ui": "^0.17.4",
@@ -72,13 +74,13 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.0",
-    "extract-text-webpack-plugin": "^2.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.26.0",
     "isomorphic-style-loader": "^2.0.0",
     "jsdom": "^9.12.0",
     "mocha": "^3.2.0",
     "mocha-babel": "^3.0.3",
-    "node-sass": "^3.10.1",
+    "node-sass": "^4.5.2",
     "postcss-loader": "^1.2.2",
     "postcss-scss": "^0.4.1",
     "prettier-eslint": "^6.2.0",
