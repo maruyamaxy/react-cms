@@ -23,7 +23,7 @@
     "start": "NODE_ENV=develop webpack-dashboard -- webpack-dev-server --progress --profile --colors",
     "dev": "NODE_ENV=develop npm run build:client && npm run build:server && cp -rf ./assets ./public/ && node server.bundle.js",
     "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive $(find src/test/mocha -name '*.spec.js')",
-    "lint": "eslint --ext js --ext jsx src"
+    "lint": "eslint --ext js --ext jsx src && sass-lint -c .sass-lint.yml -q -v"
   },
   "betterScripts": {},
   "dependencies": {
@@ -88,6 +88,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "resolve-url": "^0.2.1",
+    "sass-lint": "^1.10.2",
     "sass-loader": "^4.0.2",
     "sinon": "^2.1.0",
     "style-loader": "^0.13.1",
