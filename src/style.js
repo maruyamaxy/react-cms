@@ -14,6 +14,12 @@ export default {
   },
   blue: blue,
   pink: pink,
+  show: {
+    display: 'block',
+  },
+  hide: {
+    display: 'none',
+  },
   icon: {
     width: '1.5em',
     height: '1.5em',
