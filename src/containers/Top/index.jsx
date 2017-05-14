@@ -56,7 +56,7 @@ export default class Top extends Component {
 
   getArchives() {
     return new Promise((resolve, reject) => {
-      Archive.get('post').then((obj) => {
+      Archive.get().then((obj) => {
         resolve(obj);
       }).catch((err) => {
         reject(err);

@@ -79,8 +79,9 @@ export default class Edit extends Component {
   }
 
   getArticle() {
+    console.log(this.props.params.id);
     return new Promise((resolve, reject) => {
-      Archive.getSigleArticle(`${this.props.params.id}`).then((obj) => {
+      Archive.getSigleArticle(this.props.params.id).then((obj) => {
         resolve(obj);
       }).catch((err) => {
         reject(err);
