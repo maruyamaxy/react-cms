@@ -5,7 +5,7 @@ import config from '../config';
 export default class {
   static get() {
     return new Promise((resolve, reject) => {
-      request.GET(`${config.apiUrl}post/category`).then((arr) => {
+      request.GET(`${config.apiUrl}category`).then((arr) => {
         resolve(arr.map((obj) => {
           return new Category(obj);
         }));
