@@ -41,14 +41,17 @@ export default class Edit extends Component {
       titleError: false,
       catNameError: '',
       catSlugErrror: '',
+      selectionStart: 0,
     };
 
     this.handleTitle = this.handleTitle.bind(this);
     this.sendArticle = this.sendArticle.bind(this);
-    this.handleContent = this.handleContent.bind(this);
+    this.manegeContent = this.manegeContent.bind(this);
     this.handleAddCat = this.handleAddCat.bind(this);
     this.handleRemoveCat = this.handleRemoveCat.bind(this);
     this.handleAddCatList = this.handleAddCatList.bind(this);
+    this.handleContent = this.handleContent.bind(this);
+    this.handleUploadImage = this.handleUploadImage.bind(this);
   }
 
   componentDidMount() {
@@ -106,10 +109,33 @@ export default class Edit extends Component {
     });
   }
 
-  handleContent(content, type) {
+  handleContent(event, type) {
+    const content = event.target.value;
+    const selectionStart = event.target.selectionStart;
     const newContent = (type === 'markdown') ? content : toMarkdown(content);
     const htmlContent = (type === 'markdown') ? md().render(content) : content;
+    this.manegeContent(newContent, htmlContent, selectionStart);
+  }
+
+  handleUploadImage(file, type) {
+    // @FIXME UPLOADPOST
+    console.log(file);
+    const { article, selectionStart } = this.state;
+    let content = (type === 'markdown') ? article.content : article.htmlContent;
+    const addStr = (type === 'markdown') ? `\n${file[0].name}\n` : `\n<p>${file[0].name}</p>\n`;
+    content = this.insertStr(content, selectionStart, addStr);
+    const newContent = (type === 'markdown') ? content : toMarkdown(content);
+    const htmlContent = (type === 'markdown') ? md().render(content) : content;
+    this.manegeContent(newContent, htmlContent, selectionStart);
+  }
+
+  insertStr(str, index, insert) {
+    return str.slice(0, index) + insert + str.slice(index, str.length);
+  }
+
+  manegeContent(newContent, htmlContent, selectionStart) {
     this.setState({
+      selectionStart: selectionStart,
       article: {
         content: newContent,
         htmlContent: htmlContent,
@@ -199,6 +225,7 @@ export default class Edit extends Component {
               tabMark={tabMark}
               tabHtml={tabHtml}
               handleContent={this.handleContent}
+              handleUploadImage={this.handleUploadImage}
             />
             <h3>category lists</h3>
             <Categories
