@@ -5,7 +5,7 @@ import toMarkdown from 'to-markdown';
 import { pull, last } from 'lodash';
 
 import { Archive, Category } from '../../actions';
-import { validation } from '../../utils';
+import { request, validation } from '../../utils';
 import EditArticle from './EditArticle';
 import EditSide from './EditSide';
 import { Loading, Categories, CategoryFrom } from '../../parts';
@@ -79,7 +79,6 @@ export default class Edit extends Component {
   }
 
   getArticle() {
-    console.log(this.props.params.id);
     return new Promise((resolve, reject) => {
       Archive.getSigleArticle(this.props.params.id).then((obj) => {
         resolve(obj);
@@ -119,15 +118,20 @@ export default class Edit extends Component {
   }
 
   handleUploadImage(file, type) {
-    // @FIXME UPLOADPOST
-    console.log(file);
     const { article, selectionStart } = this.state;
-    let content = (type === 'markdown') ? article.content : article.htmlContent;
-    const addStr = (type === 'markdown') ? `\n${file[0].name}\n` : `\n<p>${file[0].name}</p>\n`;
-    content = this.insertStr(content, selectionStart, addStr);
-    const newContent = (type === 'markdown') ? content : toMarkdown(content);
-    const htmlContent = (type === 'markdown') ? md().render(content) : content;
-    this.manegeContent(newContent, htmlContent, selectionStart);
+    return new Promise((resolve, reject) => {
+      request.UPLOAD('upload', file).then((obj) => {
+        const imagePath = obj.path;
+        let content = (type === 'markdown') ? article.content : article.htmlContent;
+        const addStr = (type === 'markdown') ? `\n![](${imagePath})\n` : `\n<p><img src="${imagePath}" ></p>\n`;
+        content = this.insertStr(content, selectionStart, addStr);
+        const newContent = (type === 'markdown') ? content : toMarkdown(content);
+        const htmlContent = (type === 'markdown') ? md().render(content) : content;
+        resolve(this.manegeContent(newContent, htmlContent, selectionStart));
+      }).catch((err) => {
+        reject(err);
+      });
+    });
   }
 
   insertStr(str, index, insert) {
