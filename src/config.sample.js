@@ -5,8 +5,8 @@ function config(setting) {
 }
 
 const apiUrl = config({
-  develop: '//localhost:9000/v1/',
-  production: '//api.hoge.jp/v1/',
+  develop: '//localhost:9000/',
+  production: '//api.hoge.jp/',
 });
 
 const siteTitle = config({
@@ -15,7 +15,7 @@ const siteTitle = config({
 });
 
 const url = config({
-  develop: '//localhost:5000/',
+  develop: '//localhost:7000/',
   production: '//hoge.jp/',
 });
 
