@@ -11,8 +11,7 @@ export default class {
       request.get(url)
       .end((err, res) => {
         if (res) {
-          resolve(JSON.parse(res.text));
-          // resolve(res.body);
+          resolve(res.body);
         } else {
           reject(err);
         }
@@ -31,11 +30,10 @@ export default class {
       .type('form')
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
-      .send(JSON.stringify(params))
+      .send(params)
       .end((err, res) => {
         if (res) {
-          resolve(JSON.parse(res.text));
-          // resolve(res.body);
+          resolve(res.body);
         } else {
           reject(err);
         }
