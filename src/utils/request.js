@@ -1,5 +1,5 @@
 import request from 'superagent';
-import config from '../config';
+import apiUrl from './apiUrl';
 
 export default class {
   /**
@@ -50,7 +50,7 @@ export default class {
    */
   static UPLOAD(url, files) {
     return new Promise((resolve, reject) => {
-      request.post(config.apiUrl + url)
+      request.post(apiUrl('v1', url))
       .attach('file', files[0])
       .end((err, res) => {
         if (res) {
