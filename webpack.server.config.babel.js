@@ -6,18 +6,12 @@ import loaders from './webpack.loaders';
 
 loaders.push(
   {
-    test: /\.(css)$/,
-    loaders: [
-      'isomorphic-style-loader',
-      'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-    ],
-  },
-  {
     test: /\.(scss)$/,
     loaders: [
       'isomorphic-style-loader',
       'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
       'sass-loader',
+      'postcss-loader',
     ],
   },
 );

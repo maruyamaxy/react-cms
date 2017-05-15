@@ -3,14 +3,16 @@ const AUTOPREFIXER_BROWSERS = [
   'Android >= 4',
   'Chrome >= 35',
   'Firefox >= 31',
-  'Explorer >= 9',
+  'Explorer >= 11',
   'iOS >= 7',
   'Opera >= 12',
   'Safari >= 7.1',
 ];
 
 module.exports = {
-  plugins: [
-    import('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
-  ],
+  plugins: {
+    autoprefixer: {
+      browsers: AUTOPREFIXER_BROWSERS,
+    },
+  },
 };

@@ -1,11 +1,11 @@
-@import "highlight.scss";
+@import 'plugin/highlight.scss';
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
-	font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Yu Gothic', YuGothic, Verdana, Meiryo, 'M+ 1p', sans-serif;
+  font-size: 16px;
   color: #333;
-	line-height: 1.6;
-	margin: 0;
+  line-height: 1.6;
+  margin: 0;
   padding-bottom: 50px;
 }
 input, textarea {
@@ -27,7 +27,7 @@ h3 {
   margin: 15px 0;
 }
 
-p, ul, li ,dl {
+p, ul, li, dl {
   font-size: 1em;
 }
 
